@@ -1,72 +1,38 @@
-<template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        test-task-for-all
-      </h1>
-      <h2 class="subtitle">
-        Test task for all on Nuxt.js
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
-  </div>
+<template lang="pug">
+  .full-height.flex.flex-center
+    .q-pa-md.row
+      .col-12.flex.flex-center
+        template(v-for="note in $store.getters.notesArr")
+          .q-pa-sm {{note}}
+      .col-12.q-pa-md.flex.flex-center
+        Btn(
+          @click="changeDialogState"
+          label="Создать заметку"
+        )
+    Dialog(:value="showDialog" @hide="changeDialogState")
+      NewNoteForm
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+import Btn from '../components/Reusable/Btn'
+import Dialog from '../components/Reusable/Dialog'
+import NewNoteForm from '../components/Forms/NewNoteForm'
 
 export default {
-  components: {
-    Logo
+  name: 'IndexPage',
+  components: { NewNoteForm, Dialog, Btn },
+  data () {
+    return {
+      showDialog: false
+    }
+  },
+  methods: {
+    changeDialogState () {
+      this.showDialog = !this.showDialog
+    }
   }
 }
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
+<style scoped lang="stylus">
 </style>

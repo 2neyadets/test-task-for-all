@@ -9,13 +9,13 @@ module.exports = {
     node: true
   },
   extends: [
+    '@nuxtjs',
+    'plugin:nuxt/recommended',
     // https://github.com/vuejs/eslint-plugin-vue#priority-a-essential-error-prevention
     // consider switching to `plugin:vue/strongly-recommended` or `plugin:vue/recommended` for stricter rules.
     'plugin:vue/essential',
     // https://github.com/standard/standard/blob/master/docs/RULES-en.md
     'standard',
-    '@nuxtjs',
-    'plugin:nuxt/recommended'
   ],
   // required to lint *.vue files
   plugins: [
@@ -54,6 +54,7 @@ module.exports = {
     'import/no-extraneous-dependencies': 0,
 
     // allow debugger during development
-    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
+    'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
+    'no-console': process.env.NODE_ENV === 'production' ? 2 : 0,
   }
 }

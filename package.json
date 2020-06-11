@@ -28,6 +28,10 @@
     "eslint-plugin-nuxt": ">=0.4.2",
     "eslint-plugin-vue": "^6.2.2",
     "jest": "^24.1.0",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0",
+    "stylus": "^0.54.7",
+    "stylus-loader": "^3.0.2",
     "vue-jest": "^4.0.0-0"
   }
 }

@@ -1,5 +1,7 @@
 require('dotenv').config()
 
+// console.log(222, process.env)
+
 export default {
   mode: 'universal',
   server: {
@@ -17,7 +19,8 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }
     ]
   },
   /*
@@ -28,6 +31,7 @@ export default {
   ** Global CSS
   */
   css: [
+    '~css/app.styl'
   ],
   /*
   ** Plugins to load before mounting the App
@@ -49,7 +53,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /*
   ** Axios module configuration
