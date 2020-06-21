@@ -1,19 +1,33 @@
 <template lang="pug">
-  form(@submit.prevent="createNote" style="min-width: 270px;")
-    Input(
-      v-model="form.title"
-      label="Название"
-      :clearable="true"
-    )
-    .q-pt-sm.flex.justify-end
-      Btn(@click="$parent.$emit('hide')" label="Закрыть" :flat="true")
-      Btn.q-ml-sm(label="Создать" type="submit" :disable="!form.title")
+  .new-note-form
+    h6.q-mt-none.q-mb-md Создание новой заметки
+    form(@submit.prevent="createNote" style="min-width: 270px;")
+      Input(
+        v-model.trim="form.title"
+        label="Название"
+        :maxlength="20"
+        clearable
+        autofocus
+      )
+      .q-pt-lg.flex.justify-end
+        Btn(
+          @click="$parent.$emit('hide')"
+          label="Закрыть"
+          size="16"
+          flat
+        )
+        Btn.q-ml-sm(
+          type="submit"
+          label="Создать"
+          :disable="!form.title"
+          size="16"
+        )
 </template>
 
 <script>
-import Btn from '../Reusable/Btn'
 import Input from '../Reusable/Input'
 import { getId } from '../../utils/helpers'
+import Btn from '../Reusable/Btn'
 
 const initialForm = () => ({
   title: null
@@ -21,7 +35,7 @@ const initialForm = () => ({
 
 export default {
   name: 'NewNoteForm',
-  components: { Input, Btn },
+  components: { Btn, Input },
   props: {},
   data () {
     return {
@@ -34,6 +48,7 @@ export default {
       sessionStorage.setItem('createNoteForm.title', v)
     },
   },
+  created () {},
   mounted () {
     const title = sessionStorage.getItem('createNoteForm.title')
     if (title !== 'null') this.form.title = title || null
@@ -44,8 +59,8 @@ export default {
       const notesArr = [...this.$store.getters.notesArr]
       notesArr.push({ id: getId(), ...this.form })
       this.$store.dispatch('changeNotes', notesArr)
+      this.form = { ...this.form, ...initialForm() }
       sessionStorage.removeItem('createNoteForm.title')
-      this.form = initialForm()
       this.$parent.$emit('hide')
     },
   }

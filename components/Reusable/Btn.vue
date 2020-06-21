@@ -1,30 +1,49 @@
 <template lang="pug">
-  button.q-btn.q-btn-item.non-selectable.no-outline.q-btn--standard.q-btn--rectangle.text-white.q-focusable.q-hoverable.q-btn--wrap.q-btn--dense(
-    v-if="show"
-    @click="handleClick"
+  button.my-btn(
+    @click="$emit('click')"
     :type="type"
+    role="button"
     tabindex="0"
-    style="font-size: 14px;"
-    :class="{ 'q-btn--flat': flat, 'bg-primary': !flat, disabled: disable, 'q-btn--actionable': !disable, 'q-btn--active': active }"
+    :class="btnClass"
     :disabled="disable"
   )
-    span.q-focus-helper
-    span.q-btn__wrapper.col.row.q-anchor--skip
-      span.q-btn__content.text-center.col.items-center.q-anchor--skip.justify-center.row
-        span.block {{label}}
+    .full-height.row.items-center(:style="`font-size: ${size}px;`")
+      template(v-if="icon")
+        i.material-icons(
+          :class="label ? 'margin-right' : ''"
+        ) {{icon}}
+      span {{label}}
 </template>
 
 <script>
+
 export default {
   name: 'Btn',
+  components: {},
   props: {
-    label: {
-      type: String,
-      required: true,
-    },
     type: {
       type: String,
       default: 'button',
+    },
+    label: {
+      type: String,
+      default: '',
+    },
+    icon: {
+      type: String,
+      default: '',
+    },
+    size: {
+      type: [String, Number],
+      default: 20,
+    },
+    round: {
+      type: Boolean,
+      default: false,
+    },
+    active: {
+      type: Boolean,
+      default: false,
     },
     flat: {
       type: Boolean,
@@ -37,22 +56,61 @@ export default {
   },
   data () {
     return {
-      active: false,
-      show: true,
     }
   },
-  methods: {
-    handleClick () {
-      this.active = true
-      setTimeout(() => {
-        this.active = false
-        this.show = false
-        this.$nextTick(function () {
-          this.show = true
-        })
-      }, 300)
-      this.$emit('click')
-    },
-  }
+  computed: {
+    btnClass () {
+      return {
+        'my-btn--hoverable': !this.disable,
+        'my-btn--flat': this.flat,
+        'my-btn--round': this.round,
+        'my-btn--active': this.active,
+      }
+    }
+  },
+  watch: {},
+  created () {},
+  mounted () {},
+  updated () {},
+  methods: {},
 }
 </script>
+
+<style scoped lang="stylus">
+  .my-btn
+    display inline-flex
+    flex-direction column
+    align-items stretch
+    position relative
+    outline 0
+    border 1px solid white
+    vertical-align middle
+    padding 6px
+    font-size 14px
+    line-height 1.715em
+    text-decoration none
+    color white
+    background transparent
+    font-weight 500
+    text-transform uppercase
+    text-align center
+    width auto
+    height auto
+    transition .5s
+
+    &--hoverable:hover
+      color black
+      background white
+    &--flat
+      border 0
+      &:hover
+        color inherit
+        background rgba(255, 255, 255, .15)
+    &--round
+      border-radius 50%
+    &--active
+      color black
+      background white
+  .margin-right
+    margin-right 12px
+</style>

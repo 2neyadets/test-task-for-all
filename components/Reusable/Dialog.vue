@@ -10,13 +10,23 @@
 <script>
 export default {
   name: 'Dialog',
+  components: {},
   props: {
     value: {
       type: Boolean,
       required: true
     },
   },
-  methods: {}
+  data () {
+    return {
+    }
+  },
+  computed: {},
+  watch: {},
+  created () {},
+  mounted () {},
+  updated () {},
+  methods: {},
 }
 </script>
 
