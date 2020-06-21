@@ -1,6 +1,6 @@
 <template lang="pug">
   .absolute.flex.carousel__navigation
-    .q-carousel__navigation-inner.flex.justify-center
+    .carousel__navigation-inner.flex.justify-center
       template(v-for="(slide, index) in amountOfSlides")
         Btn.q-mx-xs(
           @click.native="$emit('changeSlide', index)"
@@ -48,4 +48,7 @@ export default {
     bottom 16px
     overflow-x auto
     overflow-y hidden
+
+    &-inner
+      flex 1 1 auto
 </style>
