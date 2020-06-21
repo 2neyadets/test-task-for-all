@@ -123,6 +123,9 @@ export default {
         border: 1px solid rgba(255, 255, 255, 0.6)
         transition border-color 0.36s cubic-bezier(0.4, 0, 0.2, 1)
 
+      &:hover:before
+        border-color: white
+
       &:after
         height inherit
         border-radius inherit
