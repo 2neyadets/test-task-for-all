@@ -9,7 +9,8 @@
         p Чтобы изменить или удалить заметку, наведите на карточку
       .col-auto
         .flex.justify-between
-          Btn(@click="editNote" size="46" icon="edit")
+          nuxt-link(:to="note.id")
+            Btn(@click="editNote" size="46" icon="edit")
           Btn(@click="openDeleteDialog" size="46" icon="delete")
 </template>
 

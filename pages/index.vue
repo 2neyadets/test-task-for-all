@@ -1,5 +1,5 @@
 <template lang="pug">
-  .full-height.flex.flex-center.q-pa-sm
+  .index-page.full-height.flex.flex-center.q-pa-sm
     .row.full-width
       .col-12.flex.flex-center
         Carousel(v-if="notesArr.length")
@@ -48,7 +48,7 @@ export default {
         return 15
       }
     },
-  }
+  },
 }
 </script>
 

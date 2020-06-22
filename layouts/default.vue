@@ -4,11 +4,10 @@
       .col-auto
         header.q-header.bg-grey-8
           .q-toolbar.row.justify-between.items-center.no-wrap
-            div test-task-for-all
-            div
-              a.text-white(href="mailto:avsintsov91@gmail.com" style="text-decoration: none;")
-                i.material-icons mail
-                span.q-px-sm avsintsov91@gmail.com
+            nuxt-link.text-white(to="/") test-task-for-all
+            a.text-white(href="mailto:avsintsov91@gmail.com")
+              i.material-icons mail
+              span.q-px-sm avsintsov91@gmail.com
           .q-layout__shadow.absolute-full.overflow-hidden.no-pointer-events
       .col
         .main.full-height.overflow-auto.bg-dark

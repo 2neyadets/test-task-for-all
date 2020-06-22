@@ -68,7 +68,7 @@ export default {
       sessionStorage.removeItem('createNoteForm.title')
       this.$parent.$emit('hide')
     },
-  }
+  },
 }
 </script>
 
