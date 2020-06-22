@@ -1,39 +1,51 @@
 <template lang="pug">
   div.text-white
-    .column(:style="`height: ${viewportHeight};`")
+    .column(:style="`height: ${viewportHeightLayout};`")
       .col-auto
         header.q-header.bg-grey-8
           .q-toolbar.row.justify-between.items-center.no-wrap
             div test-task-for-all
+            div
+              a.text-white(href="mailto:avsintsov91@gmail.com" style="text-decoration: none;")
+                i.material-icons mail
+                span.q-px-sm avsintsov91@gmail.com
           .q-layout__shadow.absolute-full.overflow-hidden.no-pointer-events
       .col
         .main.full-height.overflow-auto.bg-dark
           nuxt
+    NewNoteDialog
+    DeleteNoteDialog
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+import NewNoteDialog from '../components/Dialogs/NewNoteDialog'
+import DeleteNoteDialog from '../components/Dialogs/DeleteNoteDialog'
 
 export default {
   name: 'DefaultLayout',
-  components: {},
+  components: { NewNoteDialog, DeleteNoteDialog },
   props: {},
   data () {
     return {
     }
   },
   computed: {
-    viewportHeight () {
-      const height = this.$store.getters.viewportHeight
-      // console.log(1111, typeof height === 'string' ? height : height + 'px')
-      return typeof height === 'string' ? height : height + 'px'
-    }
+    ...mapGetters([
+      'viewportHeight',
+    ]),
+    viewportHeightLayout () {
+      return typeof this.viewportHeight === 'string'
+        ? this.viewportHeight
+        : this.viewportHeight + 'px'
+    },
   },
   watch: {},
   created () {},
   mounted () {
     this.windowResized(window, true)
     window.addEventListener('resize', this.windowResized)
-    this.$store.dispatch('getInitialNotesFromStorage')
+    this.$store.dispatch('notes/getInitialNotesFromStorage')
   },
   updated () {},
   beforeDestroy () {

@@ -2,39 +2,44 @@
   .full-height.flex.flex-center.q-pa-sm
     .row.full-width
       .col-12.flex.flex-center
-        Carousel(v-if="$store.getters.notesArr.length")
+        Carousel(v-if="notesArr.length")
       .col-12.q-px-md.q-py-sm.flex.flex-center
         Btn(
           @click="changeDialogState"
           label="Создать заметку"
           icon="add"
         )
-    Dialog(:value="showDialog" @hide="changeDialogState" @keyup.esc.native="changeDialogState")
-      NewNoteForm
 </template>
 
 <script>
-import Dialog from '../components/Reusable/Dialog'
-import NewNoteForm from '../components/Forms/NewNoteForm'
+import { mapGetters } from 'vuex'
 import Carousel from '../components/Carousel/index'
 import Btn from '../components/Reusable/Btn'
 
 export default {
   name: 'IndexPage',
-  components: { Carousel, NewNoteForm, Dialog, Btn },
+  components: { Carousel, Btn },
   data () {
     return {
-      showDialog: false
+      showDialog: false,
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters([
+      'newNoteDialog',
+      'deleteNoteDialog',
+    ]),
+    ...mapGetters('notes', [
+      'notesArr',
+    ]),
+  },
   watch: {},
   created () {},
   mounted () {},
   updated () {},
   methods: {
     changeDialogState () {
-      this.showDialog = !this.showDialog
+      this.$store.dispatch('changeDialogState', 'newNote')
     },
     fontSizeForTitle (length) {
       if (length <= 10) {

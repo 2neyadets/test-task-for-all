@@ -25,9 +25,10 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Input from '../Reusable/Input'
-import { getId } from '../../utils/helpers'
 import Btn from '../Reusable/Btn'
+import { getId } from '../../utils/helpers'
 
 const initialForm = () => ({
   title: null
@@ -42,7 +43,11 @@ export default {
       form: initialForm(),
     }
   },
-  computed: {},
+  computed: {
+    ...mapGetters('notes', [
+      'notesArr',
+    ]),
+  },
   watch: {
     'form.title' (v) {
       sessionStorage.setItem('createNoteForm.title', v)
@@ -56,9 +61,9 @@ export default {
   updated () {},
   methods: {
     createNote () {
-      const notesArr = [...this.$store.getters.notesArr]
+      const notesArr = [...this.notesArr]
       notesArr.push({ id: getId(), ...this.form })
-      this.$store.dispatch('changeNotes', notesArr)
+      this.$store.dispatch('notes/changeNotes', notesArr)
       this.form = { ...this.form, ...initialForm() }
       sessionStorage.removeItem('createNoteForm.title')
       this.$parent.$emit('hide')

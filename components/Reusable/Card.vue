@@ -10,17 +10,17 @@
       .col-auto
         .flex.justify-between
           Btn(@click="editNote" size="46" icon="edit")
-          Btn(@click="deleteNote" size="46" icon="delete")
-          //i.material-icons edit
-          //i.material-icons delete
+          Btn(@click="openDeleteDialog" size="46" icon="delete")
 </template>
 
 <script>
-
+import DeleteNoteConfirm from '../Dialogs/DeleteNoteDialog'
 import Btn from './Btn'
+import Dialog from './Dialog'
+
 export default {
   name: 'Card',
-  components: { Btn },
+  components: { DeleteNoteConfirm, Dialog, Btn },
   props: {
     note: {
       type: Object,
@@ -33,6 +33,7 @@ export default {
   },
   data () {
     return {
+      showDialog: false,
     }
   },
   computed: {},
@@ -41,6 +42,10 @@ export default {
   mounted () {},
   updated () {},
   methods: {
+    openDeleteDialog () {
+      this.$store.dispatch('notes/changeCurrentNote', this.note)
+      this.$store.dispatch('changeDialogState', 'deleteNote')
+    },
     fontSizeForTitle (length) {
       if (length <= 10) {
         return 30
@@ -50,9 +55,6 @@ export default {
     },
     editNote () {
       console.log('editNote')
-    },
-    deleteNote () {
-      console.log('deleteNote')
     },
   },
 }

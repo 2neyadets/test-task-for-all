@@ -3,7 +3,7 @@
     .carousel__wrapper.column.flex-center
       .carousel__slide
         .relative-position.row
-          template(v-for="(note, index) in [...$store.getters.notesArr].splice(currentSlide * cardsInSlide, cardsInSlide)")
+          template(v-for="(note, index) in notesForCurrentSlide")
             .col
               Card(:note="note" :index="index" :key="note.id")
     CarouselNavigation(:currentSlide="currentSlide" @changeSlide="changeSlide" :amountOfSlides="amountOfSlides")
@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 import Card from '../Reusable/Card'
 import CarouselNavigation from './CarouselNavigation'
 import CarouselLeftChevron from './CarouselLeftChevron'
@@ -27,20 +28,32 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'viewportWidth',
+    ]),
+    ...mapGetters('notes', [
+      'notesArr',
+    ]),
     cardsInSlide () {
-      if (this.$store.getters.viewportWidth >= 1024) {
+      if (this.viewportWidth >= 1024) {
         return 3
-      } else if (this.$store.getters.viewportWidth >= 750) {
+      } else if (this.viewportWidth >= 750) {
         return 2
       } else {
         return 1
       }
     },
+    notesForCurrentSlide () {
+      return [...this.notesArr].splice(this.currentSlide * this.cardsInSlide, this.cardsInSlide)
+    },
     amountOfSlides () {
-      return Math.ceil(this.$store.getters.notesArr.length / this.cardsInSlide)
+      return Math.ceil(this.notesArr.length / this.cardsInSlide)
     },
   },
   watch: {
+    currentSlide (v) {
+      localStorage.setItem('currentSlide', JSON.stringify(v))
+    },
     cardsInSlide (v) {
       const isAmountOfCardsIncreased = this.lastCardsInSlide < v
       this.lastCardsInSlide = v
@@ -53,9 +66,6 @@ export default {
         }
       }
     },
-    currentSlide (v) {
-      localStorage.setItem('currentSlide', JSON.stringify(v))
-    },
   },
   created () {},
   mounted () {
@@ -63,11 +73,13 @@ export default {
     const localCurrentSlide = localStorage.getItem('currentSlide') || null
     this.currentSlide = (localCurrentSlide && JSON.parse(localCurrentSlide)) || 0
   },
-  updated () {},
+  updated () {
+    if (this.notesForCurrentSlide.length === 0 && this.currentSlide !== 0) this.currentSlide = this.currentSlide - 1
+  },
   methods: {
     changeSlide (currentSlide) {
       if (currentSlide >= 0 && currentSlide < this.amountOfSlides) this.currentSlide = currentSlide
-    }
+    },
   },
 }
 </script>

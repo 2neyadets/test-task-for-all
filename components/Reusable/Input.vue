@@ -78,7 +78,7 @@ export default {
   watch: {},
   created () {},
   mounted () {
-    this.$refs['input' + this.id].focus()
+    if (this.autofocus) this.$refs['input' + this.id].focus()
   },
   updated () {},
   methods: {},

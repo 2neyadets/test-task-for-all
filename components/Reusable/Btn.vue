@@ -1,6 +1,7 @@
 <template lang="pug">
   button.my-btn(
     @click="$emit('click')"
+    :ref="'button' + id"
     :type="type"
     role="button"
     tabindex="0"
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+import { getId } from '../../utils/helpers'
 
 export default {
   name: 'Btn',
@@ -53,9 +55,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    autofocus: {
+      type: Boolean,
+      default: false,
+    },
   },
   data () {
     return {
+      id: getId(),
     }
   },
   computed: {
@@ -66,11 +73,13 @@ export default {
         'my-btn--round': this.round,
         'my-btn--active': this.active,
       }
-    }
+    },
   },
   watch: {},
   created () {},
-  mounted () {},
+  mounted () {
+    if (this.autofocus) this.$refs['button' + this.id].focus()
+  },
   updated () {},
   methods: {},
 }
@@ -98,12 +107,12 @@ export default {
     height auto
     transition .5s
 
-    &--hoverable:hover
+    &--hoverable:hover, &--hoverable:focus
       color black
       background white
     &--flat
       border 0
-      &:hover
+      &:hover, &:focus
         color inherit
         background rgba(255, 255, 255, .15)
     &--round
