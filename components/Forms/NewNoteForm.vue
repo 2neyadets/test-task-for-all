@@ -2,14 +2,14 @@
   .new-note-form
     h6.q-mt-none.q-mb-md Создание новой заметки
     form(@submit.prevent="createNote" style="min-width: 270px;")
-      Input(
+      MyInput.q-mb-lg(
         v-model.trim="form.title"
         label="Название"
         :maxlength="20"
         clearable
         autofocus
       )
-      .q-pt-lg.flex.justify-end
+      .flex.justify-end
         Btn(
           @click="$parent.$emit('hide')"
           label="Закрыть"
@@ -26,7 +26,7 @@
 
 <script>
 import { mapGetters } from 'vuex'
-import Input from '../Reusable/Input'
+import MyInput from '../Reusable/MyInput'
 import Btn from '../Reusable/Btn'
 import { getId } from '../../utils/helpers'
 
@@ -36,7 +36,7 @@ const initialForm = () => ({
 
 export default {
   name: 'NewNoteForm',
-  components: { Btn, Input },
+  components: { Btn, MyInput },
   props: {},
   data () {
     return {

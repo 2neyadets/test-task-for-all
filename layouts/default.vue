@@ -12,18 +12,16 @@
       .col
         .main.full-height.overflow-auto.bg-dark
           nuxt
-    NewNoteDialog
     DeleteNoteDialog
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
-import NewNoteDialog from '../components/Dialogs/NewNoteDialog'
 import DeleteNoteDialog from '../components/Dialogs/DeleteNoteDialog'
 
 export default {
   name: 'DefaultLayout',
-  components: { NewNoteDialog, DeleteNoteDialog },
+  components: { DeleteNoteDialog },
   props: {},
   data () {
     return {

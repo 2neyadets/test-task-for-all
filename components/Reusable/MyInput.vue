@@ -15,7 +15,6 @@
             @blur="active = false"
             type="text"
             tabindex="0"
-            aria-label="Outlined"
             :maxlength="maxlength"
           )
           .field__label.no-pointer-events.absolute {{label}}
@@ -40,7 +39,7 @@
 import { getId } from '../../utils/helpers'
 
 export default {
-  name: 'Input',
+  name: 'MyInput',
   components: {},
   props: {
     value: {

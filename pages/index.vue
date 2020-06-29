@@ -9,16 +9,18 @@
           label="Создать заметку"
           icon="add"
         )
+    NewNoteDialog
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import Carousel from '../components/Carousel/index'
 import Btn from '../components/Reusable/Btn'
+import NewNoteDialog from '../components/Dialogs/NewNoteDialog'
 
 export default {
   name: 'IndexPage',
-  components: { Carousel, Btn },
+  components: { NewNoteDialog, Carousel, Btn },
   data () {
     return {
       showDialog: false,

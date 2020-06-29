@@ -5,11 +5,13 @@ export const actions = {
     commit('setNotes', (initialNotes && JSON.parse(initialNotes)))
   },
   changeNotes ({ commit }, notes) {
-    localStorage.setItem('notes', JSON.stringify(notes))
     commit('setNotes', notes)
   },
   changeCurrentNote ({ commit }, note) {
     commit('setCurrentNote', note)
+  },
+  updateNoteAction ({ commit }, note) {
+    commit('updateNote', note)
   },
   deleteNoteAction (context, noteId) {
     const notes = [...context.getters.notesArr]
@@ -23,6 +25,11 @@ export const actions = {
 export const mutations = {
   setNotes (state, notes) {
     state.list = notes || []
+    localStorage.setItem('notes', JSON.stringify(state.list))
+  },
+  updateNote (state, note) {
+    state.list.splice(state.list.findIndex(item => item.id === note.id), 1, note)
+    localStorage.setItem('notes', JSON.stringify(state.list))
   },
   setCurrentNote (state, note) {
     state.current = note || null

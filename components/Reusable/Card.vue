@@ -1,16 +1,25 @@
 <template lang="pug">
   .card.q-ma-sm(:class="'index' + index")
-    .content.full-height.column
+    .content.full-width.full-height.column
       .col-auto
-        div(style="height: 90px;")
-          h2(:style="`font-size: ${fontSizeForTitle(note.title.length)}px;`")
-            span {{note.title}}
-      .col.row.flex-center
-        p Чтобы изменить или удалить заметку, наведите на карточку
+        h2(:style="`font-size: ${fontSizeForTitle(note.title.length)}px;`")
+          span {{note.title}}
+      .col.q-py-sm.column.items-center(:class="note.tasks && note.tasks.length ? 'justify-between' : 'justify-center'")
+        template(v-if="note.tasks && note.tasks.length")
+          .col.full-width.row.justify-start.items-center(style="font-size: 12px;")
+            template(v-for="(task, index) in note.tasks")
+              .col-12.flex.justify-start
+                MyCheckbox(
+                  :key="task.id + index"
+                  :task="task"
+                  :label="task.text"
+                  disable
+                )
+        template(v-else)
+          p В заметке пока нет задач.
       .col-auto
         .flex.justify-between
-          nuxt-link(:to="note.id")
-            Btn(@click="editNote" size="46" icon="edit")
+          Btn(@click="openEditNotePage(note.id)" size="46" icon="edit")
           Btn(@click="openDeleteDialog" size="46" icon="delete")
 </template>
 
@@ -18,10 +27,11 @@
 import DeleteNoteConfirm from '../Dialogs/DeleteNoteDialog'
 import Btn from './Btn'
 import Dialog from './Dialog'
+import MyCheckbox from './MyCheckbox'
 
 export default {
   name: 'Card',
-  components: { DeleteNoteConfirm, Dialog, Btn },
+  components: { MyCheckbox, DeleteNoteConfirm, Dialog, Btn },
   props: {
     note: {
       type: Object,
@@ -43,6 +53,10 @@ export default {
   mounted () {},
   updated () {},
   methods: {
+    openEditNotePage (id) {
+      this.$store.dispatch('notes/changeCurrentNote', null)
+      this.$router.push(`/${id}`)
+    },
     openDeleteDialog () {
       this.$store.dispatch('notes/changeCurrentNote', this.note)
       this.$store.dispatch('changeDialogState', 'deleteNote')
@@ -54,9 +68,6 @@ export default {
         return 15
       }
     },
-    editNote () {
-      console.log('editNote')
-    },
   },
 }
 </script>
@@ -65,8 +76,7 @@ export default {
   .card
     position relative
     min-height 400px
-    min-width 200px
-    max-width 288px
+    width 288px
     background #060c21
     display flex
     justify-content center
@@ -115,7 +125,7 @@ export default {
       h2
         position relative
         max-height 60px
-        top 30px
+        top 8px
         right 0
         margin 0
         padding 0
@@ -127,12 +137,6 @@ export default {
         padding 0
         color white
         font-size 16px
-
-      .my-btn
-        transform translateY(-30px)
-        opacity 0
-        visibility hidden
-        transition .5s
 
     &:hover
 

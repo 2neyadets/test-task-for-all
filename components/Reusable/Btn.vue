@@ -10,10 +10,11 @@
   )
     .full-height.row.items-center(:style="`font-size: ${size}px;`")
       template(v-if="icon")
-        i.material-icons(
-          :class="label ? 'margin-right' : ''"
-        ) {{icon}}
-      span {{label}}
+        .col-auto.flex.flex-center
+          i.material-icons(
+            :class="label ? 'margin-right' : ''"
+          ) {{icon}}
+      .col {{label}}
 </template>
 
 <script>

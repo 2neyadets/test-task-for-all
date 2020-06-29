@@ -32,6 +32,7 @@ export const state = () => ({
   dialogs: {
     newNote: false,
     deleteNote: false,
+    cancelEditNote: false,
   },
 })
 
@@ -40,4 +41,5 @@ export const getters = {
   viewportWidth: s => s.screen.width,
   newNoteDialog: s => s.dialogs.newNote,
   deleteNoteDialog: s => s.dialogs.deleteNote,
+  cancelEditNoteDialog: s => s.dialogs.cancelEditNote,
 }

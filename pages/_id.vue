@@ -1,34 +1,52 @@
 <template lang="pug">
-  .full-height.flex.flex-center.q-pa-sm
-    .row.full-width
-      .col-12.flex.flex-center
-        div Заметки с ID "{{$route.params.id}}" не найдено
-      .col-12.q-px-md.q-py-sm.flex.flex-center
-        nuxt-link(to="/")
-          Btn(label="На главную")
+  .full-height.row.justify-center.q-pa-sm(:class="currentNote ? 'items-start' : 'items-center'")
+    template(v-if="currentNote")
+      EditNoteForm(:currentNote="currentNote")
+    template(v-else)
+      .col-12
+        .flex.flex-center
+          div Заметки с ID "{{$route.params.id}}" не найдено
+        .q-px-md.q-py-sm.flex.flex-center
+          nuxt-link(to="/")
+            Btn(label="На главную")
+    CancelEditNoteDialog
 </template>
 
 <script>
-// import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
+import EditNoteForm from '../components/Forms/EditNoteForm'
 import Btn from '../components/Reusable/Btn'
+import CancelEditNoteDialog from '../components/Dialogs/CancelEditNoteDialog'
 
 export default {
   name: 'EditNotePage',
-  components: { Btn },
+  components: { CancelEditNoteDialog, Btn, EditNoteForm },
   data () {
     return {
     }
   },
   computed: {
-    // ...mapGetters('notes', [
-    //   'notesArr',
-    // ]),
+    ...mapGetters('notes', [
+      'notesArr',
+      'currentNote',
+    ]),
   },
-  watch: {},
+  watch: {
+    notesArr (v) {
+      this.setCurrentNote()
+    }
+  },
   created () {},
-  mounted () {},
+  mounted () {
+    this.setCurrentNote()
+  },
   updated () {},
-  methods: {},
+  methods: {
+    setCurrentNote () {
+      const note = this.notesArr.find(note => note.id === this.$route.params.id)
+      if (note) this.$store.dispatch('notes/changeCurrentNote', note)
+    },
+  },
 }
 </script>
 
