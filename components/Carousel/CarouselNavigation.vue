@@ -2,7 +2,7 @@
   .absolute.flex.carousel__navigation
     .carousel__navigation-inner.flex.justify-center
       template(v-for="(slide, index) in amountOfSlides")
-        Btn.q-mx-xs(
+        Btn.mx-xs(
           @click.native="$emit('changeSlide', index)"
           icon="brightness_1"
           :size="12"

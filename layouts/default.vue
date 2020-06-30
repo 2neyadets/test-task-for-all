@@ -2,15 +2,15 @@
   .text-white
     .column(:style="`height: ${viewportHeightLayout};`")
       .col-auto
-        header.q-header.bg-grey-8
-          .q-toolbar.row.justify-between.items-center.no-wrap
+        header.header.bg-grey-8
+          .toolbar.row.justify-between.items-center.no-wrap
             nuxt-link.text-white(to="/") test-task-for-all
             template(v-if="viewportWidth === '100vw' || viewportWidth >= 420")
               nuxt-link.text-white(to="/task") Задание
             a.text-white(href="mailto:avsintsov91@gmail.com")
               i.material-icons mail
-              span.q-px-sm avsintsov91@gmail.com
-          .q-layout__shadow.absolute-full.overflow-hidden.no-pointer-events
+              span.px-sm avsintsov91@gmail.com
+          .layout__shadow.absolute-full.overflow-hidden.no-pointer-events
       .col
         .main.full-height.overflow-auto.bg-dark
           nuxt
@@ -53,9 +53,38 @@ export default {
   },
   methods: {
     windowResized (e, isWindow = false) {
-      // console.log('windowResized', e)
       if (e !== undefined) this.$store.dispatch('screenChanged', isWindow ? e : e.target)
     },
   },
 }
 </script>
+
+<style scoped lang="stylus">
+  .header
+    position relative
+    z-index 2000
+    font-size 14px
+
+    .layout__shadow
+      bottom -10px
+      &:after
+        bottom 10px
+
+  .toolbar
+    position relative
+    padding 0 12px
+    min-height 50px
+    width 100%
+
+  .layout__shadow
+    width 100%
+
+    &:after
+      content ''
+      position absolute
+      top 0
+      right 0
+      bottom 0
+      left 0
+      box-shadow 0 0 10px 2px rgba(0,0,0,0.2), 0 0px 10px rgba(0,0,0,0.24)
+</style>

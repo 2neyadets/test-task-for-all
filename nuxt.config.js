@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-// console.log(222, process.env)
+// console.log('process.env: ', process.env)
 
 export default {
   mode: 'universal',

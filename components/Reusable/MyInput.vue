@@ -19,7 +19,7 @@
           )
           .field__label.no-pointer-events.absolute {{label}}
         template(v-if="clearable && value")
-          .q-pl-xs.row.no-wrap.items-center(style="font-size: 24px;")
+          .pl-xs.row.no-wrap.items-center(style="font-size: 24px;")
             button.field__focusable-action.material-icons.notranslate(
               @click="$emit('input', null)"
               @focus="active = true"
@@ -114,7 +114,7 @@ export default {
       border-radius 0 !important
       height 40px
       padding 0 12px
-      color var(--q-color-primary)
+      color var(--color-primary)
       max-width 100%
       outline none
 

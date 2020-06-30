@@ -1,0 +1,590 @@
+a
+  text-decoration none
+
+for $space, $value in $spaces
+  .pa-{$space}
+    padding: $value.y $value.x
+  .pl-{$space}
+    padding-left: $value.x
+  .pr-{$space}
+    padding-right: $value.x
+  .pt-{$space}
+    padding-top: $value.y
+  .pb-{$space}
+    padding-bottom: $value.y
+  .px-{$space}
+    @extends .pl-{$space}, .pr-{$space}
+  .py-{$space}
+    @extends .pt-{$space}, .pb-{$space}
+  .ma-{$space}
+    margin: $value.y $value.x
+  .ml-{$space}
+    margin-left: $value.x
+  .mr-{$space}
+    margin-right: $value.x
+  .mt-{$space}
+    margin-top: $value.y
+  .mb-{$space}
+    margin-bottom: $value.y
+  .mx-{$space}
+    @extends .ml-{$space}, .mr-{$space}
+  .my-{$space}
+    @extends .mt-{$space}, .mb-{$space}
+.mt-auto, .my-auto
+  margin-top: auto
+.ml-auto, .mx-auto
+  margin-left: auto
+.mb-auto, .my-auto
+  margin-bottom: auto
+.mr-auto, .mx-auto
+  margin-right: auto
+
+*, *:before, *:after
+  box-sizing: inherit
+  -webkit-tap-highlight-color: transparent
+  -moz-tap-highlight-color: transparent
+html, body
+  margin: 0
+  box-sizing: border-box
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary
+  display: block
+img
+  border-style: none
+svg:not(:root)
+  overflow: hidden
+button,
+input,
+optgroup,
+select,
+textarea
+  font: inherit
+  font-family: inherit
+  margin: 0
+button,
+input,
+select
+  overflow: visible
+  text-transform: none
+button::-moz-focus-inner, input::-moz-focus-inner
+  border: 0
+  padding: 0
+button:-moz-focusring, input:-moz-focusring
+  outline: 1px dotted ButtonText
+
+.material-icons
+  user-select: none
+  cursor: inherit
+  font-size: inherit
+  display: inline-flex
+  align-items: center
+  justify-content: center
+  vertical-align: middle
+
+:root
+  --color-primary:      $primary
+  --color-secondary:    $secondary
+  --color-accent:       $accent
+  --color-positive:     $positive
+  --color-negative:     $negative
+  --color-info:         $info
+  --color-warning:      $warning
+  --color-dark:         $dark
+.text-dark
+  color: $dark !important
+  color: var(--color-dark) !important
+.bg-dark
+  background: $dark !important
+  background: var(--color-dark) !important
+.text-primary
+  color: $primary !important
+  color: var(--color-primary) !important
+.bg-primary
+  background: $primary !important
+  background: var(--color-primary) !important
+.text-secondary
+  color: $secondary !important
+  color: var(--color-secondary) !important
+.bg-secondary
+  background: $secondary !important
+  background: var(--color-secondary) !important
+.text-accent
+  color: $accent !important
+  color: var(--color-accent) !important
+.bg-accent
+  background: $accent !important
+  background: var(--color-accent) !important
+.text-positive
+  color: $positive !important
+  color: var(--color-positive) !important
+.bg-positive
+  background: $positive !important
+  background: var(--color-positive) !important
+.text-negative
+  color: $negative !important
+  color: var(--color-negative) !important
+.bg-negative
+  background: $negative !important
+  background: var(--color-negative) !important
+.text-info
+  color: $info !important
+  color: var(--color-info) !important
+.bg-info
+  background: $info !important
+  background: var(--color-info) !important
+.text-warning
+  color: $warning !important
+  color: var(--color-warning) !important
+.bg-warning
+  background: $warning !important
+  background: var(--color-warning) !important
+.text-white
+  color: #fff !important
+.bg-white
+  background: #fff !important
+.text-black
+  color: #000 !important
+.bg-black
+  background: #000 !important
+.text-transparent
+  color: transparent !important
+.bg-transparent
+  background: transparent !important
+
+.text-grey
+  color: $grey !important
+.text-grey-1
+  color: $grey-1 !important
+.text-grey-2
+  color: $grey-2 !important
+.text-grey-3
+  color: $grey-3 !important
+.text-grey-4
+  color: $grey-4 !important
+.text-grey-5
+  color: $grey-5 !important
+.text-grey-6
+  color: $grey-6 !important
+.text-grey-7
+  color: $grey-7 !important
+.text-grey-8
+  color: $grey-8 !important
+.text-grey-9
+  color: $grey-9 !important
+.text-grey-10
+  color: $grey-10 !important
+.text-grey-11
+  color: $grey-11 !important
+.text-grey-12
+  color: $grey-12 !important
+.text-grey-13
+  color: $grey-13 !important
+.text-grey-14
+  color: $grey-14 !important
+
+.bg-grey
+  background: $grey !important
+.bg-grey-1
+  background: $grey-1 !important
+.bg-grey-2
+  background: $grey-2 !important
+.bg-grey-3
+  background: $grey-3 !important
+.bg-grey-4
+  background: $grey-4 !important
+.bg-grey-5
+  background: $grey-5 !important
+.bg-grey-6
+  background: $grey-6 !important
+.bg-grey-7
+  background: $grey-7 !important
+.bg-grey-8
+  background: $grey-8 !important
+.bg-grey-9
+  background: $grey-9 !important
+.bg-grey-10
+  background: $grey-10 !important
+.bg-grey-11
+  background: $grey-11 !important
+.bg-grey-12
+  background: $grey-12 !important
+.bg-grey-13
+  background: $grey-13 !important
+.bg-grey-14
+  background: $grey-14 !important
+
+for $z in 1..24
+  .shadow-{$z}
+    box-shadow: $shadow-+$z
+  .shadow-up-{$z}
+    box-shadow: $shadow-up-+$z
+.no-shadow, .shadow-0
+  box-shadow: none !important
+.inset-shadow
+  box-shadow: $inset-shadow !important
+.z-marginals
+  z-index: $z-marginals
+.z-notify
+  z-index: $z-notify
+.z-fullscreen
+  z-index: $z-fullscreen
+.z-inherit
+  z-index: inherit !important
+str-fr(selector, name, i = '')
+  unquote(replace(unquote('<i>'), unquote(i), replace(unquote('<name>'), unquote(name), unquote(selector))))
+str-fe(selector, name, noProc, i = '')
+  if noProc
+    return str-fr(selector, name, i)
+  return unquote(join(',', str-fr(selector, '', i) str-fr(selector, name, i)))
+fg($name, $size)
+  $noProcNotZero = ($size > 0)
+  @media (min-width $size)
+    {str-fe('.col<name>', $name, $noProcNotZero)}
+      &, &-auto, &-grow, &-shrink
+        .row > &, .flex > &
+          width: auto
+          min-width: 0
+          max-width: 100%
+        .column > &, .flex > &
+          height: auto
+          min-height: 0
+          max-height: 100%
+      &
+        flex: 10000 1 0%
+      &-auto
+        flex: 0 0 auto
+      &-grow
+        flex: 1 0 auto
+      &-shrink
+        flex: 0 1 auto
+    for $i in (0..$flex-cols)
+      $ic = s('%s', $i)
+      {str-fe('.col<name>-<i>', $name, $noProcNotZero, $ic)}
+        @extends .col{$name}-auto
+      .row
+        {str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)}
+          height: auto
+          width: (round($i / $flex-cols * 100, 4))%
+        if $i != 0 || $name != ''
+          {str-fe('> .offset<name>-<i>', $name, $noProcNotZero, $ic)}
+            margin-left: (round($i / $flex-cols * 100, 4))%
+      .column
+        {str-fe('> .col<name>-<i>', $name, $noProcNotZero, $ic)}
+          height: (round($i / $flex-cols * 100, 4))%
+          width: auto
+      if $size == 0
+        if $i == $flex-cols
+          .row > .col-all
+            height: auto
+            flex: 0 0 100%
+.row, .column, .flex
+  display: flex
+  flex-wrap: wrap
+  &.inline
+    display: inline-flex
+.row.reverse
+  flex-direction: row-reverse
+.column
+  flex-direction: column
+  &.reverse
+    flex-direction: column-reverse
+.wrap
+  flex-wrap: wrap
+.no-wrap
+  flex-wrap: nowrap
+.reverse-wrap
+  flex-wrap: wrap-reverse
+.order-
+  &first
+    order: -10000
+  &last
+    order: 10000
+  &none
+    order: 0
+.justify-
+  &start
+    justify-content: flex-start
+  &end
+    justify-content: flex-end
+  &center
+    justify-content: center
+  &between
+    justify-content: space-between
+  &around
+    justify-content: space-around
+  &evenly
+    justify-content: space-evenly
+.items-
+  &start
+    align-items: flex-start
+  &end
+    align-items: flex-end
+  &center
+    align-items: center
+  &baseline
+    align-items: baseline
+  &stretch
+    align-items: stretch
+.content-
+  &start
+    align-content: flex-start
+  &end
+    align-content: flex-end
+  &center
+    align-content: center
+  &stretch
+    align-content: stretch
+  &between
+    align-content: space-between
+  &around
+    align-content: space-around
+.self-
+  &start
+    align-self: flex-start
+  &end
+    align-self: flex-end
+  &center
+    align-self: center
+  &baseline
+    align-self: baseline
+  &stretch
+    align-self: stretch
+.flex-center
+  @extends .items-center
+  @extends .justify-center
+
+for $name, $size in $sizes
+  fg(s('-%s', unquote($name)), $size)
+.rounded-borders
+  border-radius: $generic-border-radius
+.border-radius-inherit
+  border-radius: inherit
+.no-transition
+  transition: none !important
+.transition-0
+  transition: 0s !important
+
+.no-pointer-events,
+.no-pointer-events--children,
+.no-pointer-events--children *
+  pointer-events: none !important
+.all-pointer-events
+  pointer-events: all !important
+.cursor
+  &-pointer
+    cursor: pointer !important
+  &-not-allowed
+    cursor: not-allowed !important
+  &-inherit
+    cursor: inherit !important
+  &-none
+    cursor: none !important
+[aria-busy='true']
+  cursor: progress
+[aria-controls],
+[role='button']
+  cursor: pointer
+[aria-disabled]
+  cursor: default
+
+.relative-position
+  position: relative
+.fixed,
+.fixed-full,
+.fullscreen,
+.fixed-center,
+.fixed-bottom,
+.fixed-left,
+.fixed-right,
+.fixed-top,
+.fixed-top-left,
+.fixed-top-right,
+.fixed-bottom-left,
+.fixed-bottom-right
+  position: fixed
+.absolute,
+.absolute-full,
+.absolute-center,
+.absolute-bottom,
+.absolute-left,
+.absolute-right,
+.absolute-top,
+.absolute-top-left,
+.absolute-top-right,
+.absolute-bottom-left,
+.absolute-bottom-right
+  position: absolute
+.fixed-top, .absolute-top
+  top: 0
+  left: 0
+  right: 0
+.fixed-right, .absolute-right
+  top: 0
+  right: 0
+  bottom: 0
+.fixed-bottom, .absolute-bottom
+  right: 0
+  bottom: 0
+  left: 0
+.fixed-left, .absolute-left
+  top: 0
+  bottom: 0
+  left: 0
+.fixed-top-left, .absolute-top-left
+  top: 0
+  left: 0
+.fixed-top-right, .absolute-top-right
+  top: 0
+  right: 0
+.fixed-bottom-left, .absolute-bottom-left
+  bottom: 0
+  left: 0
+.fixed-bottom-right, .absolute-bottom-right
+  bottom: 0
+  right: 0
+.fullscreen
+  z-index: $z-fullscreen
+  border-radius: 0 !important
+  max-width: 100vw
+  max-height: 100vh
+.absolute-full, .fullscreen, .fixed-full
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+.fixed-center, .absolute-center
+  top: 50%
+  left: 50%
+  transform: translate(-50%, -50%)
+
+:root
+  for $name, $size in $sizes
+    --size-{$name}: $size
+.fit
+  width: 100% !important
+  height: 100% !important
+.full-height
+  height: 100% !important
+.full-width
+  width: 100% !important
+  margin-left: 0 !important
+  margin-right: 0 !important
+.window-height
+  margin-top: 0 !important
+  margin-bottom: 0 !important
+  height: 100vh !important
+.window-width
+  margin-left: 0 !important
+  margin-right: 0 !important
+  width: 100vw !important
+.block
+  display: block !important
+.inline-block
+  display: inline-block !important
+
+body
+  margin 0
+  min-width: 100px
+  min-height: 100%
+  font-family: $typography-font-family
+  -ms-text-size-adjust: 100%
+  -webkit-text-size-adjust: 100%
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+  font-smoothing: antialiased
+  line-height: $body-line-height
+  font-size: $body-font-size
+for $heading, $value in $h-tags
+  {$heading}
+    font-size: $value.size
+    font-weight: $value.weight
+    line-height: $value.line-height
+    letter-spacing: $value.letter-spacing
+p
+  margin: 0 0 $spaces.md.y
+.text-
+  for $heading, $value in $headings
+    &{$heading}
+      font-size: $value.size
+      font-weight: $value.weight
+      line-height: $value.line-height
+      letter-spacing: $value.letter-spacing
+  &uppercase
+    text-transform: uppercase
+  &lowercase
+    text-transform: lowercase
+  &capitalize
+    text-transform: capitalize
+  &center
+    text-align: center
+  &left
+    text-align: left
+  &right
+    text-align: right
+  &justify
+    text-align: justify
+    hyphens: auto
+  &italic
+    font-style: italic
+  &bold
+    font-weight: bold
+  &no-wrap
+    white-space: nowrap
+  &strike
+    text-decoration: line-through
+  for $weight, $value in $text-weights
+    &weight-{$weight}
+      font-weight: $value
+small
+  font-size: 80%
+big
+  font-size: 170%
+.no-margin
+  margin: 0 !important
+.no-padding
+  padding: 0 !important
+.no-border
+  border: 0 !important
+.no-border-radius
+  border-radius: 0 !important
+.no-box-shadow
+  box-shadow: none !important
+.no-outline
+  outline: 0 !important
+.readonly
+  cursor: default !important
+.disabled, [disabled]
+  &, *
+    outline: 0 !important
+    cursor: not-allowed !important
+.disabled, [disabled]
+  opacity: .6 !important
+.hidden
+  display: none !important
+.invisible
+  visibility: hidden !important
+.transparent
+  background: transparent !important
+.overflow-auto
+  overflow: auto !important
+.overflow-hidden
+  overflow: hidden !important
+.overflow-hidden-y
+  overflow-y: hidden !important
+.hide-scrollbar
+  scrollbar-width: none
+  -ms-overflow-style: none
+  &::-webkit-scrollbar
+    width: 0
+    height: 0
+    display: none

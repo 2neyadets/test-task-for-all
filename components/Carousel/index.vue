@@ -58,7 +58,6 @@ export default {
       const isAmountOfCardsIncreased = this.lastCardsInSlide < v
       this.lastCardsInSlide = v
       const lastViewedNoteStartIndex = this.currentSlide * (isAmountOfCardsIncreased ? (v - 1) : (v + 1))
-      console.log('lastViewedNoteStartIndex: ', lastViewedNoteStartIndex)
       for (let i = 0; i < this.amountOfSlides; i++) {
         if (lastViewedNoteStartIndex < (i + 1) * v) {
           this.currentSlide = i

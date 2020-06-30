@@ -1,8 +1,8 @@
 <template lang="pug">
   .new-note-form
-    h6.q-mt-none.q-mb-md Создание новой заметки
+    h6.mt-none.mb-md Создание новой заметки
     form(@submit.prevent="createNote" style="min-width: 270px;")
-      MyInput.q-mb-lg(
+      MyInput.mb-lg(
         v-model.trim="form.title"
         label="Название"
         :maxlength="20"
@@ -16,7 +16,7 @@
           size="16"
           flat
         )
-        Btn.q-ml-sm(
+        Btn.ml-sm(
           type="submit"
           label="Создать"
           :disable="!form.title"

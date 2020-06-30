@@ -1,12 +1,12 @@
 <template lang="pug">
-  .full-height.row.justify-center.q-pa-sm(:class="currentNote ? 'items-start' : 'items-center'")
+  .full-height.row.justify-center.pa-sm(:class="currentNote ? 'items-start' : 'items-center'")
     template(v-if="currentNote")
       EditNoteForm(:currentNote="currentNote")
     template(v-else)
       .col-12
         .flex.flex-center
           div Заметки с ID "{{$route.params.id}}" не найдено
-        .q-px-md.q-py-sm.flex.flex-center
+        .px-md.py-sm.flex.flex-center
           nuxt-link(to="/")
             Btn(label="На главную")
     CancelEditNoteDialog

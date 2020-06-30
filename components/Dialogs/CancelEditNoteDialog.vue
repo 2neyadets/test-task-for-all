@@ -1,7 +1,7 @@
 <template lang="pug">
   Dialog(:value="cancelEditNoteDialog" @hide="changeDialogState" @keyup.esc.native="changeDialogState")
     .delete-note-confirm
-      h6.q-mt-none.q-mb-md(v-html="title" style="text-align: justify;")
+      h6.mt-none.mb-md(v-html="title" style="text-align: justify;")
       .flex.justify-end
         Btn(
           @click="changeDialogState"
@@ -10,7 +10,7 @@
           flat
           autofocus
         )
-        Btn.q-ml-sm(
+        Btn.ml-sm(
           @click="cancelEditNote"
           label="Да, отменить"
           size="16"

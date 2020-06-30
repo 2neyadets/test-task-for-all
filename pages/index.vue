@@ -1,9 +1,9 @@
 <template lang="pug">
-  .index-page.full-height.flex.flex-center.q-pa-sm
+  .index-page.full-height.flex.flex-center.pa-sm
     .row.full-width
       .col-12.flex.flex-center
         Carousel(v-if="notesArr.length")
-      .col-12.q-px-md.q-py-sm.flex.flex-center
+      .col-12.px-md.py-sm.flex.flex-center
         Btn(
           @click="changeDialogState"
           label="Создать заметку"

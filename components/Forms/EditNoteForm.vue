@@ -1,7 +1,7 @@
 <template lang="pug">
   form.edit-note-form(v-if="note" @submit.prevent="saveNote")
     .edit-note-form__editable
-      MyInput.q-pb-lg(
+      MyInput.pb-lg(
         :value="note.title"
         @input="v => handleChange(note, 'title', v)"
         label="Название заметки"
@@ -10,7 +10,7 @@
       )
       template(v-for="(task, index) in note.tasks")
         .row.flex-center
-          MyCheckbox.q-mb-lg(
+          MyCheckbox.mb-lg(
             @inputDone="v => handleChange(task, 'done', v)"
             @inputText="v => handleChange(task, 'text', v)"
             :task="task"
@@ -19,7 +19,7 @@
             editable
             clearable
           )
-          Btn.q-ml-sm.q-mb-lg(
+          Btn.ml-sm.mb-lg(
             @click="deleteTask(task.id)"
             icon="delete"
             size="26"
@@ -43,14 +43,14 @@
             icon="save"
             :disable="!isNoteChanged || isNoteHaveEmptyTextFields"
           )
-        .flex.flex-center.q-pt-md
+        .flex.flex-center.pt-md
           Btn(
             @click="undoLastChange"
             label="Отменить внесенное изменение"
             icon="clear"
             :disable="!isAllow.undo"
           )
-        .flex.flex-center.q-pt-md
+        .flex.flex-center.pt-md
           Btn(
             @click="redoLastChange"
             label="Вернуть отменённое изменение"
@@ -64,7 +64,7 @@
             label="Отменить редактирование"
             icon="cancel"
           )
-        .flex.flex-center.q-pt-md
+        .flex.flex-center.pt-md
           Btn(
             @click="openDeleteDialog"
             label="Удалить заметку"

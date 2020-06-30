@@ -3,12 +3,12 @@
     .row
       .col-12.text-center
         template(v-if="error.statusCode === 404")
-          h1.q-my-none 404
+          h1.my-none 404
           h5 Страница не найдена
         template(v-else)
           h1 Произошла ошибка
       .col-12
-        .q-px-md.q-py-sm.flex.flex-center
+        .px-md.py-sm.flex.flex-center
           nuxt-link(to="/")
             Btn(label="На главную")
 </template>

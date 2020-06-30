@@ -1,10 +1,10 @@
 <template lang="pug">
-  .card.q-ma-sm(:class="'index' + index")
+  .card.ma-sm(:class="'index' + index")
     .content.full-width.full-height.column
       .col-auto
         h2(:style="`font-size: ${fontSizeForTitle(note.title.length)}px;`")
           span {{note.title}}
-      .col.q-py-sm.column.items-center(:class="note.tasks && note.tasks.length ? 'justify-between' : 'justify-center'")
+      .col.py-sm.column.items-center(:class="note.tasks && note.tasks.length ? 'justify-between' : 'justify-center'")
         template(v-if="note.tasks && note.tasks.length")
           .col.full-width.row.justify-start.items-center(style="font-size: 12px;")
             template(v-for="(task, index) in note.tasks")
@@ -76,7 +76,7 @@ export default {
   .card
     position relative
     min-height 400px
-    min-width 200px
+    min-width 240px
     max-width 288px
     background #060c21
     display flex
@@ -103,9 +103,6 @@ export default {
 
     &.index2:before
       background linear-gradient(315deg, #e91e63, #5d02ff)
-
-    &.index3:before
-      background linear-gradient(315deg, #ff0000, #ffc107)
 
     &:after
       content ''
