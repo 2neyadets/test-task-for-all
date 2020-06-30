@@ -52,6 +52,7 @@ export default {
     deleteNote () {
       this.changeDialogState()
       this.$store.dispatch('notes/deleteNoteAction', this.currentNote.id)
+      this.$router.push('/')
     },
   },
 }
