@@ -1,10 +1,12 @@
 <template lang="pug">
-  div.text-white
+  .text-white
     .column(:style="`height: ${viewportHeightLayout};`")
       .col-auto
         header.q-header.bg-grey-8
           .q-toolbar.row.justify-between.items-center.no-wrap
             nuxt-link.text-white(to="/") test-task-for-all
+            template(v-if="viewportWidth === '100vw' || viewportWidth >= 420")
+              nuxt-link.text-white(to="/task") Задание
             a.text-white(href="mailto:avsintsov91@gmail.com")
               i.material-icons mail
               span.q-px-sm avsintsov91@gmail.com
@@ -30,6 +32,7 @@ export default {
   computed: {
     ...mapGetters([
       'viewportHeight',
+      'viewportWidth',
     ]),
     viewportHeightLayout () {
       return typeof this.viewportHeight === 'string'

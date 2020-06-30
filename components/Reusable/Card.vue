@@ -55,7 +55,7 @@ export default {
   methods: {
     openEditNotePage (id) {
       this.$store.dispatch('notes/changeCurrentNote', null)
-      this.$router.push(`/${id}`)
+      this.$router.push(`/note/${id}`)
     },
     openDeleteDialog () {
       this.$store.dispatch('notes/changeCurrentNote', this.note)
@@ -63,7 +63,7 @@ export default {
     },
     fontSizeForTitle (length) {
       if (length <= 10) {
-        return 30
+        return 25
       } else {
         return 15
       }
@@ -76,7 +76,8 @@ export default {
   .card
     position relative
     min-height 400px
-    width 288px
+    min-width 200px
+    max-width 288px
     background #060c21
     display flex
     justify-content center
