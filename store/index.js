@@ -1,7 +1,7 @@
 
 export const actions = {
   nuxtServerInit (context) {
-    console.log('nuxtServerInit, context: ', JSON.stringify(context, null, 2))
+    // console.log('nuxtServerInit, context: ', JSON.stringify(context, null, 2))
   },
   screenChanged ({ commit }, eventTarget) {
     commit('setHeight', eventTarget.innerHeight)

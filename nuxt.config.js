@@ -1,8 +1,14 @@
 require('dotenv').config()
 
 // console.log('process.env: ', process.env)
+const routerBase = process.env.NODE_ENV === 'production' ? {
+  router: {
+    base: '/test-task-for-all/'
+  }
+} : {}
 
 export default {
+  ...routerBase,
   mode: 'universal',
   server: {
     host: process.env.APP_HOST, // default: localhost
