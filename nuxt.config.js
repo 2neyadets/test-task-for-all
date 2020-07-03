@@ -9,7 +9,7 @@ const routerBase = process.env.NODE_ENV === 'production' ? {
 
 export default {
   ...routerBase,
-  mode: 'universal',
+  mode: 'spa',
   server: {
     host: process.env.APP_HOST, // default: localhost
     port: process.env.APP_PORT // default: 3000
