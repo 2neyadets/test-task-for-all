@@ -15,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import EditNoteForm from '../../components/Forms/EditNoteForm'
-import Btn from '../../components/Reusable/Btn'
+import Btn from '../../components/Reusable/MyBtn'
 import CancelEditNoteDialog from '../../components/Dialogs/CancelEditNoteDialog'
 
 export default {

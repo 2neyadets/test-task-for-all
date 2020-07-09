@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyInput component match snapshot 1`] = `
+<label
+  class="field row no-wrap items-start"
+  for="1482363367071"
+>
+  <div
+    class="field__inner relative-position col self-stretch column justify-center"
+  >
+    <div
+      class="field__control relative-position row no-wrap"
+      tabindex="-1"
+    >
+      <div
+        class="field__control-container col relative-position row no-wrap"
+      >
+        <input
+          class="field__native"
+          id="1482363367071"
+          maxlength="0"
+          tabindex="0"
+          type="text"
+        />
+        <div
+          class="field__label no-pointer-events absolute"
+        >
+          Название
+        </div>
+      </div>
+      <!---->
+    </div>
+    <!---->
+  </div>
+</label>
+`;

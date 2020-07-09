@@ -3,14 +3,14 @@
     .delete-note-confirm
       h6.mt-none.mb-md(v-html="title" style="text-align: justify;")
       .flex.justify-end
-        Btn(
+        MyBtn(
           @click="changeDialogState"
           label="Нет, редактировать"
           size="16"
           flat
           autofocus
         )
-        Btn.ml-sm(
+        MyBtn.ml-sm(
           @click="cancelEditNote"
           label="Да, отменить"
           size="16"
@@ -20,11 +20,11 @@
 <script>
 import { mapGetters } from 'vuex'
 import Dialog from '../Reusable/Dialog'
-import Btn from '../Reusable/Btn'
+import MyBtn from '../Reusable/MyBtn'
 
 export default {
   name: 'CancelEditNoteDialog',
-  components: { Btn, Dialog },
+  components: { MyBtn, Dialog },
   props: {},
   data () {
     return {

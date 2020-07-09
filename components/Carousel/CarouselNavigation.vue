@@ -2,7 +2,7 @@
   .absolute.flex.carousel__navigation
     .carousel__navigation-inner.flex.justify-center
       template(v-for="(slide, index) in amountOfSlides")
-        Btn.mx-xs(
+        MyBtn.mx-xs(
           @click.native="$emit('changeSlide', index)"
           icon="brightness_1"
           :size="12"
@@ -13,10 +13,10 @@
 
 <script>
 
-import Btn from '../Reusable/Btn'
+import MyBtn from '../Reusable/MyBtn'
 export default {
   name: 'CarouselNavigation',
-  components: { Btn },
+  components: { MyBtn },
   props: {
     currentSlide: {
       type: Number,

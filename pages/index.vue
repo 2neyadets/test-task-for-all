@@ -15,7 +15,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import Carousel from '../components/Carousel/index'
-import Btn from '../components/Reusable/Btn'
+import Btn from '../components/Reusable/MyBtn'
 import NewNoteDialog from '../components/Dialogs/NewNoteDialog'
 
 export default {

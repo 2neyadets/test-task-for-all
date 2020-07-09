@@ -45,17 +45,21 @@ export default {
   name: 'MyCheckbox',
   components: { MyInput },
   props: {
+    mockId: {
+      type: String,
+      default: '',
+    },
     task: {
       type: Object,
+      required: true,
+    },
+    label: {
+      type: String,
       required: true,
     },
     editable: {
       type: Boolean,
       default: false,
-    },
-    label: {
-      type: String,
-      required: true,
     },
     clearable: {
       type: Boolean,
@@ -72,7 +76,7 @@ export default {
   },
   data () {
     return {
-      id: getId(),
+      id: this.mockId || getId(),
     }
   },
   computed: {},

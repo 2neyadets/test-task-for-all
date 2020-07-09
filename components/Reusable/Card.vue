@@ -19,19 +19,19 @@
           p В заметке пока нет задач.
       .col-auto
         .flex.justify-between
-          Btn(@click="openEditNotePage(note.id)" size="46" icon="edit")
-          Btn(@click="openDeleteDialog" size="46" icon="delete")
+          MyBtn(@click="openEditNotePage(note.id)" size="46" icon="edit")
+          MyBtn(@click="openDeleteDialog" size="46" icon="delete")
 </template>
 
 <script>
 import DeleteNoteConfirm from '../Dialogs/DeleteNoteDialog'
-import Btn from './Btn'
+import MyBtn from './MyBtn'
 import Dialog from './Dialog'
 import MyCheckbox from './MyCheckbox'
 
 export default {
   name: 'Card',
-  components: { MyCheckbox, DeleteNoteConfirm, Dialog, Btn },
+  components: { MyCheckbox, DeleteNoteConfirm, Dialog, MyBtn },
   props: {
     note: {
       type: Object,

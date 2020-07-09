@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyCheckbox component match snapshot 1`] = `
+<div
+  class="my-checkbox flex flex-center"
+>
+  <div
+    class="checkbox cursor-pointer no-outline row inline no-wrap items-center checkbox--dark"
+    id="1482363367071"
+    role="checkbox"
+    tabindex="0"
+  >
+    <div
+      class="checkbox__inner relative-position no-pointer-events checkbox__inner--falsy"
+      style="font-size: 32px;"
+    >
+      <input
+        class="hidden checkbox__native absolute ma-none pa-none invisible"
+        type="checkbox"
+      />
+      <div
+        class="checkbox__bg absolute"
+      >
+        <svg
+          class="checkbox__svg fit absolute-full"
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <path
+            class="checkbox__truthy"
+            d="M1.73,12.91 8.1,19.28 22.79,4.59"
+            fill="none"
+          />
+          <path
+            class="checkbox__indet"
+            d="M4,14H20V10H4"
+          />
+        </svg>
+      </div>
+    </div>
+    <span
+      class="no-outline"
+      tabindex="-1"
+    />
+  </div>
+  <label
+    for="1482363367071"
+  >
+    Название
+  </label>
+</div>
+`;

@@ -10,13 +10,13 @@
         autofocus
       )
       .flex.justify-end
-        Btn(
+        MyBtn(
           @click="$parent.$emit('hide')"
           label="Закрыть"
           size="16"
           flat
         )
-        Btn.ml-sm(
+        MyBtn.ml-sm(
           type="submit"
           label="Создать"
           :disable="!form.title"
@@ -27,7 +27,7 @@
 <script>
 import { mapGetters } from 'vuex'
 import MyInput from '../Reusable/MyInput'
-import Btn from '../Reusable/Btn'
+import MyBtn from '../Reusable/MyBtn'
 import { getId } from '../../utils/helpers'
 
 const initialForm = () => ({
@@ -36,7 +36,7 @@ const initialForm = () => ({
 
 export default {
   name: 'NewNoteForm',
-  components: { Btn, MyInput },
+  components: { MyBtn, MyInput },
   props: {},
   data () {
     return {

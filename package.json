@@ -11,7 +11,8 @@
     "start": "nuxt start",
     "generate": "nuxt build --target static && nuxt export && nuxt build",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
-    "test": "jest"
+    "test": "jest --watchAll",
+    "test-once": "jest"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
@@ -35,5 +36,18 @@
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "vue-jest": "^4.0.0-0"
+  },
+  "jest": {
+    "moduleFileExtensions": ["js", "json", "vue"],
+    "transform": {
+      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest",
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
+    },
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1",
+      "^test/(.*)$": "<rootDir>/test/$1"
+    },
+    "snapshotSerializers": ["<rootDir>/node_modules/jest-serializer-vue"],
+    "setupFiles": ["<rootDir>/test/jest-setup.js"]
   }
 }

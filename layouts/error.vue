@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import Btn from '../components/Reusable/Btn'
+import Btn from '../components/Reusable/MyBtn'
 export default {
   name: 'ErrorLayout',
   components: { Btn },

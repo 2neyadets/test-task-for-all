@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MyBtn component match snapshot 1`] = `
+<button
+  class="my-btn my-btn--hoverable"
+  role="button"
+  tabindex="0"
+  type="button"
+>
+  <div
+    class="full-height row items-center"
+    style="font-size: 20px;"
+  >
+    <!---->
+    <div
+      class="col"
+    >
+      
+    </div>
+  </div>
+</button>
+`;

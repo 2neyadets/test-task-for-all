@@ -1,6 +1,6 @@
 <template lang="pug">
   .absolute.flex.flex-center.carousel__left-chevron
-    Btn(
+    MyBtn(
       @click.native="$emit('changeSlide', currentSlide - 1)"
       icon="chevron_left"
       :disable="currentSlide === 0"
@@ -9,10 +9,10 @@
 
 <script>
 
-import Btn from '../Reusable/Btn'
+import MyBtn from '../Reusable/MyBtn'
 export default {
   name: 'CarouselLeftChevron',
-  components: { Btn },
+  components: { MyBtn },
   props: {
     currentSlide: {
       type: Number,

@@ -19,7 +19,7 @@
             editable
             clearable
           )
-          Btn.ml-sm.mb-lg(
+          MyBtn.ml-sm.mb-lg(
             @click="deleteTask(task.id)"
             icon="delete"
             size="26"
@@ -27,7 +27,7 @@
       .flex.flex-center(v-if="isDisableCreateNewTask")
         p Максимальное количество задач для одной заметки - 5
       .flex.flex-center
-        Btn(
+        MyBtn(
           @click="addTask"
           label="Добавить задачу"
           icon="add"
@@ -37,21 +37,21 @@
     .edit-note-form__actions
       .edit-note-form__actions--normal
         .flex.flex-center
-          Btn(
+          MyBtn(
             type="submit"
             label="Сохранить изменения"
             icon="save"
             :disable="!isNoteChanged || isNoteHaveEmptyTextFields"
           )
         .flex.flex-center.pt-md
-          Btn(
+          MyBtn(
             @click="undoLastChange"
             label="Отменить внесенное изменение"
             icon="clear"
             :disable="!isAllow.undo"
           )
         .flex.flex-center.pt-md
-          Btn(
+          MyBtn(
             @click="redoLastChange"
             label="Вернуть отменённое изменение"
             icon="repeat"
@@ -59,13 +59,13 @@
           )
       .edit-note-form__actions--danger
         .flex.flex-center
-          Btn(
+          MyBtn(
             @click="openCancelEditNoteDialog"
             label="Отменить редактирование"
             icon="cancel"
           )
         .flex.flex-center.pt-md
-          Btn(
+          MyBtn(
             @click="openDeleteDialog"
             label="Удалить заметку"
             icon="delete"
@@ -74,13 +74,13 @@
 
 <script>
 import MyInput from '../Reusable/MyInput'
-import Btn from '../Reusable/Btn'
+import MyBtn from '../Reusable/MyBtn'
 import MyCheckbox from '../Reusable/MyCheckbox'
 import { getId } from '../../utils/helpers'
 
 export default {
   name: 'EditNoteForm',
-  components: { MyCheckbox, Btn, MyInput },
+  components: { MyCheckbox, MyBtn, MyInput },
   props: {
     currentNote: {
       type: Object,

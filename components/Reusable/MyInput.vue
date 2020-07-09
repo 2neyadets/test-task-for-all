@@ -29,10 +29,10 @@
               tabindex="0"
               type="button"
             ) close
-      template(v-if="maxlength")
-        .field__bottom.row.items-start
+      template(v-if="maxlength || hint")
+        .field__bottom.row.items-start(:class="hint ? 'justify-between' : 'justify-end'")
           .field__messages.col(v-if="hint") {{hint}}
-          .field__counter {{value ? value.length : 0}} / {{maxlength}}
+          .field__counter(v-if="maxlength") {{value ? value.length : 0}} / {{maxlength}}
 </template>
 
 <script>
@@ -42,6 +42,10 @@ export default {
   name: 'MyInput',
   components: {},
   props: {
+    mockId: {
+      type: String,
+      default: '',
+    },
     value: {
       type: [String, Object],
       default: null,
@@ -64,12 +68,12 @@ export default {
     },
     hint: {
       type: String,
-      default: ' ',
+      default: '',
     },
   },
   data () {
     return {
-      id: getId(),
+      id: this.mockId || getId(),
       active: false,
     }
   },

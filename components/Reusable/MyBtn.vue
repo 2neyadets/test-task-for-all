@@ -21,7 +21,7 @@
 import { getId } from '../../utils/helpers'
 
 export default {
-  name: 'Btn',
+  name: 'MyBtn',
   components: {},
   props: {
     type: {
