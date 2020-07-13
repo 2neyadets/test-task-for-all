@@ -1,0 +1,50 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card component match snapshot 1`] = `
+<div
+  class="card ma-sm index0"
+>
+  <div
+    class="content full-width full-height column"
+  >
+    <div
+      class="card__title col-auto"
+    >
+      <h2
+        style="font-size: 15px;"
+      >
+        <span>
+          Название заметки
+        </span>
+      </h2>
+    </div>
+    <div
+      class="card__inner col py-sm column items-center justify-center"
+    >
+      <p>
+        В заметке пока нет задач.
+      </p>
+    </div>
+    <div
+      class="card__actions col-auto"
+    >
+      <div
+        class="flex justify-between"
+      >
+        <mybtn-stub
+          icon="edit"
+          label=""
+          size="46"
+          type="button"
+        />
+        <mybtn-stub
+          icon="delete"
+          label=""
+          size="46"
+          type="button"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;

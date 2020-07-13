@@ -1,26 +1,26 @@
 <template lang="pug">
   .card.ma-sm(:class="'index' + index")
     .content.full-width.full-height.column
-      .col-auto
+      .card__title.col-auto
         h2(:style="`font-size: ${fontSizeForTitle(note.title.length)}px;`")
           span {{note.title}}
-      .col.py-sm.column.items-center(:class="note.tasks && note.tasks.length ? 'justify-between' : 'justify-center'")
+      .card__inner.col.py-sm.column.items-center(:class="note.tasks && note.tasks.length ? 'justify-between' : 'justify-center'")
         template(v-if="note.tasks && note.tasks.length")
-          .col.full-width.row.justify-start.items-center(style="font-size: 12px;")
-            template(v-for="(task, index) in note.tasks")
-              .col-12.flex.justify-start
+          .tasks.col.full-width.row.justify-start.items-center(style="font-size: 12px;")
+            template(v-for="(task, i) in note.tasks")
+              .task.col-12.flex.justify-start
                 MyCheckbox(
-                  :key="task.id + index"
+                  :key="task.id + i"
                   :task="task"
                   :label="task.text"
                   disable
                 )
         template(v-else)
           p В заметке пока нет задач.
-      .col-auto
+      .card__actions.col-auto
         .flex.justify-between
-          MyBtn(@click="openEditNotePage(note.id)" size="46" icon="edit")
-          MyBtn(@click="openDeleteDialog" size="46" icon="delete")
+          MyBtn(@click.native="openEditNotePage(note.id)" size="46" icon="edit")
+          MyBtn(@click.native="openDeleteDialog" size="46" icon="delete")
 </template>
 
 <script>

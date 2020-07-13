@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditNoteForm component match snapshot 1`] = `
+<form
+  class="edit-note-form"
+>
+  <div
+    class="edit-note-form__editable"
+  >
+    <myinput-stub
+      class="pb-lg"
+      clearable="true"
+      hint=""
+      label="Название заметки"
+      maxlength="20"
+      mockid=""
+      value="Название заметки"
+    />
+    <!---->
+    <div
+      class="flex flex-center"
+    >
+      <mybtn-stub
+        autofocus="true"
+        class="add-task-btn"
+        icon="add"
+        label="Добавить задачу"
+        size="20"
+        type="button"
+      />
+    </div>
+  </div>
+  <div
+    class="edit-note-form__actions"
+  >
+    <div
+      class="edit-note-form__actions--normal"
+    >
+      <div
+        class="flex flex-center"
+      >
+        <mybtn-stub
+          class="save-changes-btn"
+          disable="true"
+          icon="save"
+          label="Сохранить изменения"
+          size="20"
+          type="submit"
+        />
+      </div>
+      <div
+        class="flex flex-center pt-md"
+      >
+        <mybtn-stub
+          class="undo-btn"
+          disable="true"
+          icon="clear"
+          label="Отменить внесенное изменение"
+          size="20"
+          type="button"
+        />
+      </div>
+      <div
+        class="flex flex-center pt-md"
+      >
+        <mybtn-stub
+          class="redo-btn"
+          disable="true"
+          icon="repeat"
+          label="Вернуть отменённое изменение"
+          size="20"
+          type="button"
+        />
+      </div>
+    </div>
+    <div
+      class="edit-note-form__actions--danger"
+    >
+      <div
+        class="flex flex-center"
+      >
+        <mybtn-stub
+          class="cancel-edit-btn"
+          icon="cancel"
+          label="Отменить редактирование"
+          size="20"
+          type="button"
+        />
+      </div>
+      <div
+        class="flex flex-center pt-md"
+      >
+        <mybtn-stub
+          class="delete-note-btn"
+          icon="delete"
+          label="Удалить заметку"
+          size="20"
+          type="button"
+        />
+      </div>
+    </div>
+  </div>
+</form>
+`;

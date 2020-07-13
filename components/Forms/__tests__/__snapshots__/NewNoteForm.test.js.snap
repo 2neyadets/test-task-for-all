@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewNoteForm component match snapshot 1`] = `
+<div
+  class="new-note-form"
+>
+  <h6
+    class="mt-none mb-md"
+  >
+    Создание новой заметки
+  </h6>
+  <form
+    style="min-width: 270px;"
+  >
+    <myinput-stub
+      autofocus="true"
+      class="mb-lg"
+      clearable="true"
+      hint=""
+      label="Название"
+      maxlength="20"
+      mockid=""
+    />
+    <div
+      class="flex justify-end"
+    >
+      <mybtn-stub
+        flat="true"
+        icon=""
+        label="Закрыть"
+        size="16"
+        type="button"
+      />
+      <mybtn-stub
+        class="ml-sm"
+        disable="true"
+        icon=""
+        label="Создать"
+        size="16"
+        type="submit"
+      />
+    </div>
+  </form>
+</div>
+`;

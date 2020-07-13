@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog component match snapshot 1`] = `
+<transition-stub
+  name="slide"
+>
+  <div
+    class="dialog fullscreen no-pointer-events"
+  >
+    <div
+      class="dialog__backdrop fixed-full"
+    />
+    <div
+      class="dialog__inner flex no-pointer-events fixed-full flex-center"
+      tabindex="-1"
+    >
+      <div
+        class="pa-md bg-grey-9"
+      />
+    </div>
+  </div>
+</transition-stub>
+`;

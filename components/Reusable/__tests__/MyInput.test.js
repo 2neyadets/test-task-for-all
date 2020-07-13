@@ -12,6 +12,7 @@ describe('MyInput component', () => {
   beforeEach(() => {
     const label = 'Название'
     wrapper = shallowMount(MyInput, {
+      localVue,
       propsData: {
         mockId,
         label,
@@ -20,133 +21,116 @@ describe('MyInput component', () => {
   })
 
   it('mounts without errors', done => {
-    localVue.config.errorHandler = done // для отлавливания ошибок внутри nextTick
+    localVue.config.errorHandler = done // для отлавливания ошибок внутри nextTick, если нужно что-то выпонять внутри него
     expect.assertions(1)
     expect(wrapper).toBeTruthy()
     done()
   })
 
-  it('can work with null', done => {
+  it('can work with null', async () => {
+    expect.assertions(1)
     wrapper.setProps({
       value: null,
     })
-    localVue.nextTick(() => {
-      expect.assertions(1)
-      expect(wrapper.find('input').element.value).toBe('')
-      done()
-    })
+    await localVue.nextTick()
+    expect(wrapper.find('input').element.value).toBe('')
   })
 
-  it('can work with undefined', done => {
+  it('can work with undefined', async () => {
+    expect.assertions(1)
     wrapper.setProps({
       value: undefined,
     })
-    localVue.nextTick(() => {
-      expect.assertions(1)
-      expect(wrapper.find('input').element.value).toBe('')
-      done()
-    })
+    await localVue.nextTick()
+    expect(wrapper.find('input').element.value).toBe('')
   })
 
-  it('can work with strings', done => {
+  it('can work with strings', async () => {
+    expect.assertions(1)
     const value = 'value123123'
     wrapper.setProps({
       value,
     })
-    localVue.nextTick(() => {
-      expect.assertions(1)
-      expect(wrapper.find('input').element.value).toBe(value)
-      done()
-    })
+    await localVue.nextTick()
+    expect(wrapper.find('input').element.value).toBe(value)
   })
 
-  it('is clearable', done => {
+  it('is clearable', async () => {
+    expect.assertions(1)
     const value = 'someValue'
     wrapper.setProps({
       value,
       clearable: true,
     })
-    localVue.nextTick(() => {
-      expect.assertions(1)
-      expect(wrapper.find('button').exists()).toBe(true)
-      done()
-    })
+    await localVue.nextTick()
+    expect(wrapper.find('button').exists()).toBe(true)
   })
 
   it('input emit "input" event', () => {
+    expect.assertions(2)
     const value = '111!!!'
     wrapper.find('input').setValue(value)
-    expect.assertions(2)
     expect(wrapper.find('input').element.value).toBe(value)
     expect(wrapper.emitted().input[0]).toEqual([value])
   })
 
-  it('clear btn emit "input" event by clicking on it', done => {
+  it('clear btn emit "input" event by clicking on it', async () => {
+    expect.assertions(1)
     const value = 'someValue'
     wrapper.setProps({
       value,
       clearable: true,
     })
-    localVue.nextTick(() => {
-      wrapper.find('button').trigger('click')
-      expect.assertions(1)
-      expect(wrapper.emitted().input[0]).toEqual([null])
-      done()
-    })
+    await localVue.nextTick()
+    wrapper.find('button').trigger('click')
+    expect(wrapper.emitted().input[0]).toEqual([null])
   })
 
-  it('can show max length', done => {
+  it('can show max length', async () => {
+    expect.assertions(1)
     const value = 'someValue',
       maxlength = 10
     wrapper.setProps({
       value,
       maxlength,
     })
-    localVue.nextTick(() => {
-      expect.assertions(1)
-      expect(wrapper.find('.field__counter').html()).toContain(`${value.length} / ${maxlength}`)
-      done()
-    })
+    await localVue.nextTick()
+    expect(wrapper.find('.field__counter').html()).toContain(`${value.length} / ${maxlength}`)
   })
 
-  it('can show hint', done => {
+  it('can show hint', async () => {
+    expect.assertions(1)
     const hint = 'Подсказка!'
     wrapper.setProps({
       hint,
     })
-    localVue.nextTick(() => {
-      expect.assertions(1)
-      expect(wrapper.find('.field__messages').html()).toContain(hint)
-      done()
-    })
+    await localVue.nextTick()
+    expect(wrapper.find('.field__messages').html()).toContain(hint)
   })
 
   it('can autofocus', () => {
+    expect.assertions(1)
     const localWrapper = shallowMount(MyInput, {
       propsData: {
         label: 'Название',
         autofocus: true,
       },
     })
-    expect.assertions(1)
     expect(localWrapper.find('input').element).toBe(document.activeElement)
   })
 
-  it('can be active and not', done => {
+  it('can be active and not', async () => {
     expect.assertions(6)
     expect(wrapper.classes('field--focused')).toBe(false)
     expect(wrapper.classes('field--float')).toBe(false)
     wrapper.find('input').trigger('focus')
-    localVue.nextTick(() => {
-      expect(wrapper.classes('field--focused')).toBe(true)
-      expect(wrapper.classes('field--float')).toBe(true)
-      wrapper.find('input').trigger('blur')
-      localVue.nextTick(() => {
-        expect(wrapper.classes('field--focused')).toBe(false)
-        expect(wrapper.classes('field--float')).toBe(false)
-        done()
-      })
-    })
+    await localVue.nextTick()
+    expect(wrapper.classes('field--focused')).toBe(true)
+    expect(wrapper.classes('field--float')).toBe(true)
+    wrapper.find('input').trigger('blur')
+    await localVue.nextTick()
+    expect(wrapper.classes('field--focused')).toBe(false)
+    expect(wrapper.classes('field--float')).toBe(false)
   })
 
   it('id on checkbox and label', () => {

@@ -9,7 +9,7 @@
         clearable
       )
       template(v-for="(task, index) in note.tasks")
-        .row.flex-center
+        .task.row.flex-center
           MyCheckbox.mb-lg(
             @inputDone="v => handleChange(task, 'done', v)"
             @inputText="v => handleChange(task, 'text', v)"
@@ -19,16 +19,16 @@
             editable
             clearable
           )
-          MyBtn.ml-sm.mb-lg(
-            @click="deleteTask(task.id)"
+          MyBtn.task__delete-btn.ml-sm.mb-lg(
+            @click.native="deleteTask(task.id)"
             icon="delete"
             size="26"
           )
       .flex.flex-center(v-if="isDisableCreateNewTask")
         p Максимальное количество задач для одной заметки - 5
       .flex.flex-center
-        MyBtn(
-          @click="addTask"
+        MyBtn.add-task-btn(
+          @click.native="addTask"
           label="Добавить задачу"
           icon="add"
           :disable="isDisableCreateNewTask"
@@ -37,36 +37,36 @@
     .edit-note-form__actions
       .edit-note-form__actions--normal
         .flex.flex-center
-          MyBtn(
+          MyBtn.save-changes-btn(
             type="submit"
             label="Сохранить изменения"
             icon="save"
             :disable="!isNoteChanged || isNoteHaveEmptyTextFields"
           )
         .flex.flex-center.pt-md
-          MyBtn(
-            @click="undoLastChange"
+          MyBtn.undo-btn(
+            @click.native="undoLastChange"
             label="Отменить внесенное изменение"
             icon="clear"
             :disable="!isAllow.undo"
           )
         .flex.flex-center.pt-md
-          MyBtn(
-            @click="redoLastChange"
+          MyBtn.redo-btn(
+            @click.native="redoLastChange"
             label="Вернуть отменённое изменение"
             icon="repeat"
             :disable="!isAllow.redo"
           )
       .edit-note-form__actions--danger
         .flex.flex-center
-          MyBtn(
-            @click="openCancelEditNoteDialog"
+          MyBtn.cancel-edit-btn(
+            @click.native="openCancelEditNoteDialog"
             label="Отменить редактирование"
             icon="cancel"
           )
         .flex.flex-center.pt-md
-          MyBtn(
-            @click="openDeleteDialog"
+          MyBtn.delete-note-btn(
+            @click.native="openDeleteDialog"
             label="Удалить заметку"
             icon="delete"
           )

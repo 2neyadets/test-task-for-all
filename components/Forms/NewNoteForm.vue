@@ -11,7 +11,7 @@
       )
       .flex.justify-end
         MyBtn(
-          @click="$parent.$emit('hide')"
+          @click.native="$parent.$emit('hide')"
           label="Закрыть"
           size="16"
           flat
