@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Carousel component match snapshot 1`] = `
+<div
+  class="carousel bg-transparent text-white shadow-12 rounded-borders relative-position"
+  style="min-height: 484px;"
+>
+  <div
+    class="carousel__wrapper column flex-center"
+  >
+    <div
+      class="carousel__slide"
+    >
+      <div
+        class="relative-position row"
+      >
+        <div
+          class="col"
+        >
+          <card-stub
+            index="0"
+            note="[object Object]"
+          />
+        </div>
+        <div
+          class="col"
+        >
+          <card-stub
+            index="1"
+            note="[object Object]"
+          />
+        </div>
+        <div
+          class="col"
+        >
+          <card-stub
+            index="2"
+            note="[object Object]"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <carouselnavigation-stub
+    amountofslides="2"
+    currentslide="0"
+  />
+  <carouselleftchevron-stub
+    amountofslides="2"
+    currentslide="0"
+  />
+  <carouselrightchevron-stub
+    amountofslides="2"
+    currentslide="0"
+  />
+</div>
+`;

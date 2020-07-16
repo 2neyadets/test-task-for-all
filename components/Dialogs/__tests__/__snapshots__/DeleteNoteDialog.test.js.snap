@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DeleteNoteDialog component match snapshot 1`] = `
+<dialog-stub
+  value="true"
+>
+  <div
+    class="delete-note-confirm"
+  >
+    <h6
+      class="mt-none mb-md"
+      style="text-align: justify;"
+    >
+      Вы уверены, что хотите 
+      <span
+        style="color: red;"
+      >
+        удалить
+      </span>
+       заметку с названием 
+      <strong>
+        "Название заметки"
+      </strong>
+      ?
+    </h6>
+    <div
+      class="flex justify-end"
+    >
+      <mybtn-stub
+        autofocus="true"
+        flat="true"
+        icon=""
+        label="Отменить"
+        size="16"
+        type="button"
+      />
+      <mybtn-stub
+        class="ml-sm"
+        icon=""
+        label="Да, удалить"
+        size="16"
+        type="button"
+      />
+    </div>
+  </div>
+</dialog-stub>
+`;

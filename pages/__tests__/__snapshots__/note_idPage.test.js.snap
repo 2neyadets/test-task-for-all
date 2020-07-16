@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NoteIdPage component match snapshot 1`] = `
+<div
+  class="full-height row justify-center pa-sm items-start"
+>
+  <editnoteform-stub
+    currentnote="[object Object]"
+  />
+  <canceleditnotedialog-stub />
+</div>
+`;

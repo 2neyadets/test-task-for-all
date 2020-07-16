@@ -4,14 +4,14 @@
       h6.mt-none.mb-md(v-html="title" style="text-align: justify;")
       .flex.justify-end
         MyBtn(
-          @click="changeDialogState"
+          @click.native="changeDialogState"
           label="Отменить"
           size="16"
           flat
           autofocus
         )
         MyBtn.ml-sm(
-          @click="deleteNote"
+          @click.native="deleteNote"
           label="Да, удалить"
           size="16"
         )

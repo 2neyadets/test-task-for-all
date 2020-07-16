@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CarouselRightChevron component match snapshot 1`] = `
+<div
+  class="absolute flex flex-center carousel__right-chevron"
+>
+  <mybtn-stub
+    icon="chevron_right"
+    label=""
+    size="20"
+    type="button"
+  />
+</div>
+`;

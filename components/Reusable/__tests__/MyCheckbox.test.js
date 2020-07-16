@@ -7,11 +7,11 @@ localVue.use(Vuex)
 
 describe('MyCheckbox component', () => {
   let wrapper
-  const mockId = '1482363367071'
+  const mockId = '1482363367071',
+    label = 'Название',
+    task = { done: false }
 
   beforeEach(() => {
-    const label = 'Название',
-      task = { done: false }
     wrapper = shallowMount(MyCheckbox, {
       localVue,
       propsData: {
@@ -45,6 +45,19 @@ describe('MyCheckbox component', () => {
     expect.assertions(2)
     expect(wrapper.find('.checkbox').attributes('id')).toBe(mockId)
     expect(wrapper.find('label').attributes('for')).toBe(mockId)
+  })
+
+  it('use getId func when !mockId', async () => {
+    expect.assertions(1)
+    const localWrapper = shallowMount(MyCheckbox, {
+      localVue,
+      propsData: {
+        label,
+        task,
+      },
+    })
+    await localVue.nextTick()
+    expect(localWrapper.vm.$data.id).not.toBe(mockId)
   })
 
   it('can be disabled', async () => {

@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`IndexPage component match snapshot 1`] = `
+<div
+  class="index-page full-height flex flex-center pa-sm"
+>
+  <div
+    class="row full-width"
+  >
+    <div
+      class="col-12 flex flex-center"
+    >
+      <!---->
+    </div>
+    <div
+      class="col-12 px-md py-sm flex flex-center"
+    >
+      <mybtn-stub
+        icon="add"
+        label="Создать заметку"
+        size="20"
+        type="button"
+      />
+    </div>
+  </div>
+  <newnotedialog-stub />
+</div>
+`;

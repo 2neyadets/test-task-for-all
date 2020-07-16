@@ -4,8 +4,8 @@
       .col-12.flex.flex-center
         Carousel(v-if="notesArr.length")
       .col-12.px-md.py-sm.flex.flex-center
-        Btn(
-          @click="changeDialogState"
+        MyBtn(
+          @click.native="changeDialogState"
           label="Создать заметку"
           icon="add"
         )
@@ -15,22 +15,17 @@
 <script>
 import { mapGetters } from 'vuex'
 import Carousel from '../components/Carousel/index'
-import Btn from '../components/Reusable/MyBtn'
+import MyBtn from '../components/Reusable/MyBtn'
 import NewNoteDialog from '../components/Dialogs/NewNoteDialog'
 
 export default {
   name: 'IndexPage',
-  components: { NewNoteDialog, Carousel, Btn },
+  components: { NewNoteDialog, Carousel, MyBtn },
   data () {
     return {
-      showDialog: false,
     }
   },
   computed: {
-    ...mapGetters([
-      'newNoteDialog',
-      'deleteNoteDialog',
-    ]),
     ...mapGetters('notes', [
       'notesArr',
     ]),
@@ -42,13 +37,6 @@ export default {
   methods: {
     changeDialogState () {
       this.$store.dispatch('changeDialogState', 'newNote')
-    },
-    fontSizeForTitle (length) {
-      if (length <= 10) {
-        return 30
-      } else {
-        return 15
-      }
     },
   },
 }

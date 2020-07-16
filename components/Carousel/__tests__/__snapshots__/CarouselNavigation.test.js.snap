@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CarouselNavigation component match snapshot 1`] = `
+<div
+  class="absolute flex carousel__navigation"
+>
+  <div
+    class="carousel__navigation-inner flex justify-center"
+  >
+    <mybtn-stub
+      class="mx-xs"
+      icon="brightness_1"
+      label=""
+      round="true"
+      size="12"
+      type="button"
+    />
+    <mybtn-stub
+      active="true"
+      class="mx-xs"
+      icon="brightness_1"
+      label=""
+      round="true"
+      size="12"
+      type="button"
+    />
+    <mybtn-stub
+      class="mx-xs"
+      icon="brightness_1"
+      label=""
+      round="true"
+      size="12"
+      type="button"
+    />
+  </div>
+</div>
+`;

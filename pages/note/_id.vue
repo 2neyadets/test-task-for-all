@@ -8,19 +8,19 @@
           div Заметки с ID "{{$route.params.id}}" не найдено
         .px-md.py-sm.flex.flex-center
           nuxt-link(to="/")
-            Btn(label="На главную")
+            MyBtn(label="На главную")
     CancelEditNoteDialog
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
 import EditNoteForm from '../../components/Forms/EditNoteForm'
-import Btn from '../../components/Reusable/MyBtn'
+import MyBtn from '../../components/Reusable/MyBtn'
 import CancelEditNoteDialog from '../../components/Dialogs/CancelEditNoteDialog'
 
 export default {
   name: 'EditNotePage',
-  components: { CancelEditNoteDialog, Btn, EditNoteForm },
+  components: { CancelEditNoteDialog, MyBtn, EditNoteForm },
   data () {
     return {
     }

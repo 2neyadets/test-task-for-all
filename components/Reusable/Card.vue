@@ -24,14 +24,12 @@
 </template>
 
 <script>
-import DeleteNoteConfirm from '../Dialogs/DeleteNoteDialog'
 import MyBtn from './MyBtn'
-import Dialog from './Dialog'
 import MyCheckbox from './MyCheckbox'
 
 export default {
   name: 'Card',
-  components: { MyCheckbox, DeleteNoteConfirm, Dialog, MyBtn },
+  components: { MyCheckbox, MyBtn },
   props: {
     note: {
       type: Object,
@@ -44,7 +42,6 @@ export default {
   },
   data () {
     return {
-      showDialog: false,
     }
   },
   computed: {},

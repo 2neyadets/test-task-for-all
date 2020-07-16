@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorLayout component match snapshot 1`] = `
+<div
+  class="full-width full-height flex flex-center"
+>
+  <div
+    class="row"
+  >
+    <div
+      class="col-12 text-center"
+    >
+      <h1
+        class="my-none"
+      >
+        404
+      </h1>
+      <h5>
+        Страница не найдена
+      </h5>
+    </div>
+    <div
+      class="col-12"
+    >
+      <div
+        class="px-md py-sm flex flex-center"
+      >
+        <nuxtlink-stub
+          to="/"
+        >
+          <btn-stub
+            icon=""
+            label="На главную"
+            size="20"
+            type="button"
+          />
+        </nuxtlink-stub>
+      </div>
+    </div>
+  </div>
+</div>
+`;

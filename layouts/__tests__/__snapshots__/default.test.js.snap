@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DefaultLayout component match snapshot 1`] = `
+<div
+  class="text-white"
+>
+  <div
+    class="column"
+    style="height: 640px;"
+  >
+    <div
+      class="col-auto"
+    >
+      <header
+        class="header bg-grey-8"
+      >
+        <div
+          class="toolbar row justify-between items-center no-wrap"
+        >
+          <nuxtlink-stub
+            class="text-white"
+            to="/"
+          >
+            test-task-for-all
+          </nuxtlink-stub>
+          <!---->
+          <a
+            class="text-white"
+            href="mailto:avsintsov91@gmail.com"
+          >
+            <i
+              class="material-icons"
+            >
+              mail
+            </i>
+            <span
+              class="px-sm"
+            >
+              avsintsov91@gmail.com
+            </span>
+          </a>
+        </div>
+        <div
+          class="layout__shadow absolute-full overflow-hidden no-pointer-events"
+        />
+      </header>
+    </div>
+    <div
+      class="col"
+    >
+      <div
+        class="main full-height overflow-auto bg-dark"
+      >
+        <nuxt-stub />
+      </div>
+    </div>
+  </div>
+  <deletenotedialog-stub />
+</div>
+`;

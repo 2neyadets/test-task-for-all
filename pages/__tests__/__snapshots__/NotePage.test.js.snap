@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotePage component match snapshot 1`] = `
+<errorlayout-stub
+  error="[object Object]"
+/>
+`;

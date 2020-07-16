@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CancelEditNoteDialog component match snapshot 1`] = `
+<dialog-stub
+  value="true"
+>
+  <div
+    class="delete-note-confirm"
+  >
+    <h6
+      class="mt-none mb-md"
+      style="text-align: justify;"
+    >
+      Вы уверены, что хотите 
+      <span
+        style="color: red;"
+      >
+        отменить редактирование
+      </span>
+       заметки с названием 
+      <strong>
+        "Название заметки"
+      </strong>
+      ?
+    </h6>
+    <div
+      class="flex justify-end"
+    >
+      <mybtn-stub
+        autofocus="true"
+        flat="true"
+        icon=""
+        label="Нет, редактировать"
+        size="16"
+        type="button"
+      />
+      <mybtn-stub
+        class="ml-sm"
+        icon=""
+        label="Да, отменить"
+        size="16"
+        type="button"
+      />
+    </div>
+  </div>
+</dialog-stub>
+`;
