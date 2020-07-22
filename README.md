@@ -12,6 +12,13 @@ $ yarn dev
 ```
 ### [Open](http://localhost:8080) App on `localhost:8080`
 
+## Tests
+```bash
+# run tests in "watchAll" mode
+$ yarn test
+# run tests once
+$ yarn test-once
+```
 ## Build Setup
 ```bash
 # build for production and launch server
