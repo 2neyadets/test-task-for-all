@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { getId } from '../../utils/helpers'
+import { getId } from '../../assets/helpers'
 import MyInput from './MyInput'
 
 export default {

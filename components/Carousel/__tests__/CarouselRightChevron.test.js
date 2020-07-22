@@ -40,7 +40,7 @@ describe('CarouselRightChevron component', () => {
       currentSlide: 2,
     })
     await localVue.nextTick()
-    expect(wrapper.find('MyBtn-stub').attributes().disable).toBe('true')
+    expect(wrapper.find('MyBtn-stub').attributes().disable).toBeTruthy()
   })
 
   it('match snapshot', () => {

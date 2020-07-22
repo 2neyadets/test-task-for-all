@@ -28,7 +28,7 @@
 import { mapGetters } from 'vuex'
 import MyInput from '../Reusable/MyInput'
 import MyBtn from '../Reusable/MyBtn'
-import { getId } from '../../utils/helpers'
+import { getId } from '../../assets/helpers'
 
 const initialForm = () => ({
   title: null

@@ -40,7 +40,7 @@ describe('CarouselNavigation component', () => {
   it('active slide btn have "active" class', async () => {
     expect.assertions(2)
     const navBtns = wrapper.findAll('MyBtn-stub')
-    expect(navBtns.at(1).attributes('active')).toBe('true')
+    expect(navBtns.at(1).attributes('active')).toBeTruthy()
     wrapper.setProps({
       currentSlide: 0
     })

@@ -76,7 +76,7 @@
 import MyInput from '../Reusable/MyInput'
 import MyBtn from '../Reusable/MyBtn'
 import MyCheckbox from '../Reusable/MyCheckbox'
-import { getId } from '../../utils/helpers'
+import { getId } from '../../assets/helpers'
 
 export default {
   name: 'EditNoteForm',

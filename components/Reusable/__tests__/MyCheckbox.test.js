@@ -92,7 +92,7 @@ describe('MyCheckbox component', () => {
       task: { done: true }
     })
     await localVue.nextTick()
-    expect(wrapper.find('.checkbox').attributes('aria-checked')).toBe('true')
+    expect(wrapper.find('.checkbox').attributes('aria-checked')).toBeTruthy()
   })
 
   it('can show checked and unchecked state', async () => {
