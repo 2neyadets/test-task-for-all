@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a,b){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1595394712",layout:"default",error:b,state:{screen:{height:"100vh",width:"100vw"},dialogs:{newNote:a,deleteNote:a,cancelEditNote:a},notes:{list:[],current:b}},serverRendered:true,routePath:"\u002F",config:{}}}(false,null));
